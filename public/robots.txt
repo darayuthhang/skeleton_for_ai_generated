@@ -1,0 +1,5 @@
+# Block all crawlers for
+User-agent: *
+Disallow: /api
+Disallow: /3dlogo/dashboard
+

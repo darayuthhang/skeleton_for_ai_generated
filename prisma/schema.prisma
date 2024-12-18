@@ -1,0 +1,117 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+//@map can be used to assign a different name to your columns names, 
+//for example if the column name for a table in your database 
+//is userLastName but you want to assign a different name (user_last_name) and access it with 
+//a different name in your generated PrismaClient you can use @map attribute for it.
+//column by default is not null able it mean it cannot be emppty
+// with question mark the colum can be ne nullable
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearch"]
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+
+}
+
+model User {
+  id           String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name         String
+  email        String     @unique
+  password     String?
+  google_id    String?    @unique
+  auth_method  String
+  role         String?     @default("none") @map("role")
+  account_type String     @default("free") @map("account_type")
+  created_at   DateTime   @default(now()) @db.Timestamptz
+  updated_at   DateTime   @default(now()) @db.Timestamptz
+  validated    Boolean    @default(false)
+   tokens       Token[]
+   subscriptions Subscription[]
+   imageurls ImageUrl[]
+   searchrequests SearchRequest?
+    permissions   Permission?
+   onetimepayments OneTimePayment?
+}
+model SearchRequest {
+  id                    String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  user                  User     @relation(fields: [user_id], references: [id])
+  user_id               String   @db.Uuid  @unique
+  remaining_requests    Int        // Field for tracking remaining requests
+  created_at            DateTime @default(now()) @db.Timestamptz
+  updated_at            DateTime @default(now()) @db.Timestamptz
+}
+
+model Token {
+  id                String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  verification_code String   @unique
+  expired_in        BigInt   @db.BigInt
+  created_at        DateTime @default(now()) @db.Timestamptz
+  user              User     @relation(fields: [user_id], references: [id])
+  user_id           String   @unique @db.Uuid
+}
+model Subscription {
+  id               String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  user             User     @relation(fields: [user_id], references: [id])
+  user_id          String   @db.Uuid
+  stripe_customer_id String  @unique
+  stripe_customer_email String?
+  stripe_sub_id     String
+  stripe_price_id   String 
+  has_access        Boolean @default(false)
+  plan             String @default("none")
+  created_at       DateTime @default(now()) @db.Timestamptz
+  updated_at       DateTime @default(now()) @db.Timestamptz
+}
+model OneTimePayment {
+  id                   String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  user                 User     @relation(fields: [user_id], references: [id])
+  user_id              String   @db.Uuid @unique
+  stripe_payment_id    String   @unique
+  has_access           Boolean  @default(false)
+  created_at           DateTime @default(now()) @db.Timestamptz
+  updated_at           DateTime @default(now()) @db.Timestamptz
+}
+
+
+
+model ImageUrl {
+  id            String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  title_and_heading      String
+  image_url      String
+  domain_slug    String
+  description    String 
+  meta_description String
+  has_access       Boolean? @default(false)
+
+
+  user_id          String   @db.Uuid
+    user             User     @relation(fields: [user_id], references: [id])
+     created_at           DateTime @default(now()) @db.Timestamptz
+  updated_at           DateTime @default(now()) @db.Timestamptz
+
+}
+
+model Permission{
+    id   String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+    is_private       Boolean? @default(false)
+ user                 User     @relation(fields: [user_id], references: [id])
+  user_id              String   @db.Uuid @unique
+  created_at           DateTime @default(now()) @db.Timestamptz
+  updated_at           DateTime @default(now()) @db.Timestamptz
+}
+
+model CollectData{
+      id   String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+
+     email        String     
+     prompt_type  String?
+     feed_count    Int
+     image_url  String?
+  created_at           DateTime @default(now()) @db.Timestamptz
+  updated_at           DateTime @default(now()) @db.Timestamptz
+}
