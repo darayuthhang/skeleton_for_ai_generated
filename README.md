@@ -1,0 +1,1 @@
+# skeleton_for_ai_generated
