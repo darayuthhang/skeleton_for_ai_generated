@@ -79,9 +79,9 @@ export async function POST(request) {
     if (!search || search.remaining_requests <= 0) {
       throw new Error("Remaining requests have reached the limit");
     }
-
+    //check if one time payment will expired 
     // Check one-time payment access
-    const oneTimePayment = await db.OneTimePayment.findUnique({
+    const oneTimePayment = await db.OneTimePayment.findFirst({
       where: { user_id: userId },
       select: { has_access: true },
     });
@@ -98,7 +98,8 @@ export async function POST(request) {
      and return in JSON format below: {
     data:"",
     meta_description:"",
-    description:""
+    description:"",
+    alt_text:""
     }`;
     const assistant = `You are expert in extract important text from prompt that can rank for seo.`;
     let gptResponse = await openAiService.sendToGptAPiChat(
@@ -114,7 +115,7 @@ export async function POST(request) {
     const titleAndHeading = removeDots(promptForSeo);
     const description = userPrompts?.description;
     const metaDescription = userPrompts?.meta_description;
-
+    const altText = userPrompts?.alt_text;
 
     /**
      * Flex shcneel return in array format [ ReadableStream { locked: false, state: 'readable', supportsBYOB: false }]
@@ -161,6 +162,7 @@ export async function POST(request) {
           meta_description:metaDescription,
           domain_slug: domainSlug,
           image_url: imageUrl,
+          alt_text:altText
         },
       });
   

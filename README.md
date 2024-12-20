@@ -6,7 +6,7 @@ s
 AI: Best for professional vector design work with editable elements. Ideal for logos, illustrations, and complex graphics that need to be edited frequently.
 EPS: Suitable for high-quality prints and professional publishing. Useful for vector graphics that need to be compatible with various software.
 JPG: Ideal fosr photographs and images where file size is important. Commonly used for web and digital photography.s
-SVG: Great for web use and scsalable graphics that need to maintain clarity across different sizes. Useful for icons, web illustrations, and respsonsive design.ss
+SVG: Great for web use and scsalable graphics that need to maintain clarity across different sizes. Useful for icons, web illustrationss, and respsonsive design.ss
 
 /"p-2 flex justify-cesnter w-full md:w-auto rounded-md shadow-lg border-2 mx-auto
 
@@ -23,7 +23,7 @@ model Background{
     created_at           DateTime @default(now()) @db.Timestamptz
   updated_at           DateTime @default(now()) @db.Timestamptz
 }
-
+s
 
 model ImageUrl {
   id          ss  String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid

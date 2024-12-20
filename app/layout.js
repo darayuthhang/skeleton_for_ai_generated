@@ -55,9 +55,9 @@ export default function RootLayout(props) {
 
        
 
-{process.env.NEXT_PUBLIC_LOCAL_STAGE !== 'local' && 
+{/* {process.env.NEXT_PUBLIC_LOCAL_STAGE !== 'local' && 
   <script defer data-domain="3dlogoai.com" src="https://plausible.io/js/script.js"></script>
-}
+} */}
       </head>
       <body className=' min-h-screen w-screen  bg-gray-100   ' >
         <SessionProvider>

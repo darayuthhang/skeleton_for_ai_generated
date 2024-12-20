@@ -31,6 +31,7 @@ export async function POST(request, { params }) {
   let pricingItem = "";
   let mode = "subscription";
   try {
+    
      if(accountType.trim() === constants.PRICING.one_time_entry){
       pricingItem = process.env.NEXT_PUBLIC_ONE_TIME_ENTRY_STRIPE_PRODUCT
       mode = "payment" //one time payment
@@ -48,6 +49,7 @@ export async function POST(request, { params }) {
     else{
       throw new Error("Pro or Expert payment do not exist");
     }
+
     const paymentMode = process.env.NEXT_PUBLIC_STRIPE_PAYMENT_MODE;
     const successUrl = `${process.env.NEXT_PUBLIC_URL}/stripe-payment/success?session_id={CHECKOUT_SESSION_ID}&credit_type=${accountType?.trim()}`;
     const cancelUrl = `${process.env.NEXT_PUBLIC_URL}/stripe-payment/cancel`;
@@ -59,7 +61,6 @@ export async function POST(request, { params }) {
       userId,
       accountType,
       mode,
-      reqBody?.promotekitReferral
     );
     return NextResponse.json(
       { success: true, sessionId: sessionId },

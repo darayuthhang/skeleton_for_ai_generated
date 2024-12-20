@@ -7,19 +7,15 @@ import { getServerSession } from "next-auth/next"
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import { redirect } from 'next/navigation'
 import { FRONT_ENDPOINT } from './lib/front-end-point';
-import { shortenDomainSlug } from './lib/3d-logo-helpers';
 import constants from './lib/constants';
 import Landing from './component/Landing/Landing';
 import { imageList } from './lib/3d-logo-constant';
-import { imageListOf3DLogo, imageListOf2DLogo } from './lib/3d-logo-constant';
-import TestApp from './testApp';
 export const dynamic = 'force-dynamic';
-const title = `The #1 AI 3DLogo Generator for Professional 3DLogo
- | 3dlogoai`
+const title = `The #1 AI Coloring page Generator | ${constants.APP_NAME}`
+const des = `Generate beautiful, customizable AI-powered coloring pages with ${constants.APP_NAME}. Perfect for kids, adults, and artists seeking creative fun. Try it now and bring your ideas to life!`;
+
 const imageurl = "/image/showcase/logo.webp"
-const des = `
-3D Logo Design Service - Elevate Your Brand with Stunning 3D Logos | 3dlogoai
-`
+
 export const metadata = {
   title: title,
   description: des,
@@ -103,12 +99,10 @@ export default async function page() {
   if(session?.accessToken){
     redirect(`${FRONT_ENDPOINT.DASHBOARD}`)
   }
-  const h1 = ` The #1 AI 3DLogo Generator for Professional 3DLogo`;
-  const h2 = ` Create a 3D logo`
-  const des = `   Get professional 3D logos in seconds with our AI 3D Logo
-                  Generator. Simply enter your company name and slogan to
-                  receive stunning logo designs.`
-  
+  const h1 = ` The #1 AI Coloring page Generator `;
+  const h2 = ` Create Coloring Pages  & Sell Them `
+  const des = `Design and sell your own customizable coloring pages. Turn your creativity into profit by offering unique designs that people will love and buy today!`;
+
 
 
   const limit = 12;
@@ -132,8 +126,7 @@ export default async function page() {
     <Landing 
     h1={h1}
     h2={h2}
-    imageListOf3DLogo={imageListOf3DLogo}
-    imageListOf2DLogo={imageListOf2DLogo}
+
     description={des}
     imageList={imageList}
   

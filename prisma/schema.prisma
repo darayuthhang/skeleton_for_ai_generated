@@ -35,7 +35,7 @@ model User {
    imageurls ImageUrl[]
    searchrequests SearchRequest?
     permissions   Permission?
-   onetimepayments OneTimePayment?
+   onetimepayments OneTimePayment[]
 }
 model SearchRequest {
   id                    String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
@@ -70,14 +70,22 @@ model Subscription {
 model OneTimePayment {
   id                   String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   user                 User     @relation(fields: [user_id], references: [id])
-  user_id              String   @db.Uuid @unique
+  user_id              String   @db.Uuid 
   stripe_payment_id    String   @unique
+    payment_type           PaymentType?   @default(NO_PASS)
+
   has_access           Boolean  @default(false)
   created_at           DateTime @default(now()) @db.Timestamptz
   updated_at           DateTime @default(now()) @db.Timestamptz
 }
 
-
+enum PaymentType {
+  FIRST_DAY_PASS
+  SECOND_DAY_PASS
+  THIRSTY_DAY_PASS
+  ONE_YEAR_DAY_PASS
+  NO_PASS
+}
 
 model ImageUrl {
   id            String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
@@ -87,7 +95,7 @@ model ImageUrl {
   description    String 
   meta_description String
   has_access       Boolean? @default(false)
-
+  alt_text String?
 
   user_id          String   @db.Uuid
     user             User     @relation(fields: [user_id], references: [id])

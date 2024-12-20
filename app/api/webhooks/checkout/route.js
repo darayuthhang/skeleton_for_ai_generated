@@ -96,13 +96,19 @@ export async function POST(req) {
                     if(userId){
                         //when user pay with one time payment
                         if(paymentMode === "payment"){
+                            let dayPass = '';
                             const plan = accountType;
                             //basic 30 request, entry 5 searches
                             let remainRequest = 0;
+                            //1 year pass 
                              if(plan === constants.PRICING.one_time_entry){
-                                remainRequest = 100;
+                                remainRequest = 1200;
+                                dayPass = constants.ENUM_DAY_PASS.ONE_YEAR_DAY_PASS;
+                            //30 day pas 
                             }else if(plan === constants.PRICING.beginner){
-                                remainRequest = 40;
+                                remainRequest = 100;
+                                dayPass = constants.ENUM_DAY_PASS.THIRSTY_DAY_PASS;
+
                             }else if(plan === constants.PRICING.one_time_pay_as_u_go){
                                 remainRequest = 1;
                             }else if(plan === constants.PRICING.one_time_starter){
@@ -118,17 +124,32 @@ export async function POST(req) {
                                         has_access:true
                                     }
                                   }) 
-                                if(!checkSub?.has_access){
-                                    const subscription = await trx.OneTimePayment.create({
-                                        data: {
-                                            user_id: userId,
-                                            stripe_payment_id: stripePaymentId,
-                                        has_access: true,
-                                            
+                                  //each time user buy we need to track payment
+
+                                // if(!checkSub?.has_access){
+                                //     const subscription = await trx.OneTimePayment.create({
+                                //         data: {
+                                //             user_id: userId,
+                                //             stripe_payment_id: stripePaymentId,
+                                //         has_access: true,
+                                //         payment_type:dayPass
                                           
-                                        },
-                                    });
-                                }
+                                //         },
+                                //     });
+                                // }
+                                /**
+                                 * Each payment we want to store it saparately 
+                                 * so we can compare the payment with stripe 
+                                 */
+                                const subscription = await trx.OneTimePayment.create({
+                                    data: {
+                                        user_id: userId,
+                                        stripe_payment_id: stripePaymentId,
+                                    has_access: true,
+                                    payment_type:dayPass
+                                      
+                                    },
+                                });
                                 const updatedRequest = await trx.SearchRequest.update({
                                     where: {
                                         user_id: userId,

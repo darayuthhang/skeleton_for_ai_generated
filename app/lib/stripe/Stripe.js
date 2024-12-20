@@ -55,9 +55,7 @@ class StripePayment {
             const session = await stripe.checkout.sessions.create({
                 client_reference_id: JSON.stringify({ userId, accountType }),
                 payment_method_types: ['card'],
-                metadata: {
-                    promotekit_referral: referral,
-                },
+          
                 line_items: [{
                     price: `${pricingItem}`, // Use your Stripe price ID here
                     quantity: 1,

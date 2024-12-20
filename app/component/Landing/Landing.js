@@ -12,11 +12,9 @@ import Faq from "./Faq";
 import BigCardSignup from "./BigCardSignup";
 import Footer from "./Footer";
 import CountLogo from "./CountLogo";
-import ShowoffImageList from "./ShowoffImageList";
 import FutureTrends from "./FutureTrend";
 import ComparisonBenefit from "./ComparisonBenefit";
-import Image from "next/image";
-
+import { SHOW_LANDING_IMAGE_LIST } from "@/app/lib/3d-logo-constant";
 
 const stripe = new StripePayment();
 const Landing = ({     imageList, h1,h2, description, dynamic, imageListOf3DLogo,imageListOf2DLogo }) => {
@@ -77,9 +75,9 @@ const Landing = ({     imageList, h1,h2, description, dynamic, imageListOf3DLogo
         scrollTo={scrollTo}
         h1={h1}
         h2={h2}
-        imageList={imageList}
         des={description}
         dynamic={dynamic}
+        imageList={SHOW_LANDING_IMAGE_LIST}
       />
 
 
@@ -92,31 +90,23 @@ const Landing = ({     imageList, h1,h2, description, dynamic, imageListOf3DLogo
       
       </div> */}
       {/* <DemoVideo /> */}
-      <div className="flex justify-center ">
+      {/* <div className="flex justify-center ">
       <video className="rounded-md border"  type="video/mp4" width="860" height="514" muted="muted" autoplay="autoplay" loop="loop" src="https://res.cloudinary.com/dacxiuqkp/video/upload/v1734036543/media/demo_zwmw9k.mp4"></video>
 
-      </div>
+      </div> */}
       {/* <AsSeenIn /> */}
-      <div className="flex justify-center">
+      {/* <div className="flex justify-center">
         <CountLogo />
-      </div>
-      <div className="flex flex-col">
-    <div className="text-center text-xl mb-2">Examples created using our logo creator
-      </div>
-      <div className="flex justify-center mt-5 mb-5">
-          <button onClick={handleSwitchLogo} className={`btn btn-sm ${switchLogoType && "btn-secondary"}`}>3D Logo</button>
-          <button onClick={handleSwitchLogo} className={`btn btn-sm ${!switchLogoType && "btn-secondary"}`}>2D Logo</button>
-      </div>
+      </div> */}
 
-    </div>
    
       {/* <ExploreCommunity imageUrls={imageUrls} /> */}
-      <div className="mt-10 mb-10">
+      {/* <div className="mt-10 mb-10">
         <WallOfLove wallOfLoveRef={wallOfLoveRef} />
-      </div>
-      <ComparisonBenefit />
+      </div> */}
+      {/* <ComparisonBenefit /> */}
 
-      <FutureTrends />
+ 
 
       {/* <MarketingApp /> */}
       <div className="mt-5 ">

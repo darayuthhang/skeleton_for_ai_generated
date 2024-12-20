@@ -47,22 +47,22 @@ const VerticalHero = ({
                 <h2 className="text-black text-4xl font-bold tracking-tight text-gray-700
                  sm:text-5xl xl:text-7xl ">
                   {h2}
-                  <br></br>
+               
                   <span  className="border-b-4 border-indigo-200 border-b-indigo-500 rounded-full px-2"> 
-                    in seconds</span>
+                    on Amazon</span>
                 </h2>
-                {/* <div className="flex flex-wrap justify-center gap-2"> 
+                <div className="flex flex-wrap justify-center gap-2"> 
                 {imageList.map((val, index) => 
                   <Image 
                     className="rounded-md"
                     key={index}
-                    width={150}
-                    height={150}
+                    width={200}
+                    height={200}
                     alt={val?.alt}
                     src={val?.image_url}
                   />
                 )}
-                </div> */}
+                </div> 
             
                 <p
                   className=" mt-3 text-base 
@@ -92,7 +92,7 @@ const VerticalHero = ({
             )}
           </div>
 
-          <AvatarRating />
+          {/* <AvatarRating /> */}
           {/* <div className="flex justify-center">
             <a
               className=""

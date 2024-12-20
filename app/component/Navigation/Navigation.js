@@ -16,6 +16,7 @@ import StripePayment from "@/app/lib/stripe/Stripe";
 import CardPricingModal from "../CardPricingModal/CardPricingModal";
 import { FRONT_ENDPOINT } from "@/app/lib/front-end-point";
 import { sendFeedBackApi } from "../3dlogo/Dashboard/DashboardApi";
+import constants from "@/app/lib/constants";
 
 const Navigation = ({
   searchSymbolInput,
@@ -152,11 +153,12 @@ const Navigation = ({
                 className="rounded-lg"
               />
               {isAuthenticated ? (
-                <strong className="  font-bold  md:text-lg">3D Logo ai</strong>
+                <strong className="  font-bold  md:text-lg">
+                  {constants.APP_NAME_FOR_HEADING}
+                </strong>
               ) : (
                 <strong className="  font-bold text-shadow-3d text-green-100  md:text-lg">
-                  3D Logo ai
-                </strong>
+ {constants.APP_NAME_FOR_HEADING}                </strong>
               )}
             </Link>
           </div>
@@ -307,7 +309,7 @@ const Navigation = ({
                     Demo
                   </Link>
                 </li> */}
-                    <li>
+                    {/* <li>
                       <Link
                         href="/tools"
                         className="
@@ -318,9 +320,9 @@ const Navigation = ({
                       >
                         Freetool
                       </Link>
-                    </li>
+                    </li> */}
 
-                    <li>
+                    {/* <li>
                       <Link
                     
                         href="/blog"
@@ -332,7 +334,7 @@ const Navigation = ({
                       >
                        Blog
                       </Link>
-                    </li>
+                    </li> */}
                   </>
                 ) : (
                   <></>

@@ -6,15 +6,21 @@ import React from 'react';
  */
 const faqContent = [
     {
+        faqQuestion:"How do credits work",
+        content:`
+        Each coloring page design requires 1 credit.
+        `
+    },
+    {
         faqQuestion:"What do I get exactly?",
-        content:`You will get logos that can be used for free commercially
+        content:`You will get coloring page that can be used for free commercially
 
         `
     },
     {
         faqQuestion: "Can i get refund?",
         content: `
-        If you do not like it, let us know. We will refund you—no questions asked. If you are kind enough, please give us feedback.
+        If you do not like it, let us know. We will refund you within 7 days of purchase. If you are kind enough, please give us feedback.
         `
     },
     {
@@ -40,7 +46,7 @@ const faqContent = [
         `
     },
     {
-        faqQuestion: "What is the format for the logo?",
+        faqQuestion: "What is the format for the coloring page?",
         content: `
         You will be able to download format in png.
         `

@@ -26,7 +26,7 @@ export async function GET(request, {params}) {
     try {
         const result = await db.ImageUrl.findMany({
             where: { user_id: userId },
-            select: { image_url: true, industry:true },
+            select: { image_url: true },
             skip: offset,
             take: limit,
             orderBy: { created_at: 'desc' },
@@ -34,7 +34,7 @@ export async function GET(request, {params}) {
         });
         const allImages = await db.ImageUrl.findMany({
             where: { user_id: userId },
-            select: { image_url: true, industry:true },
+            select: { image_url: true },
             orderBy: { created_at: 'desc' },
         });
 

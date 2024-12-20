@@ -69,14 +69,15 @@ export async function POST(request) {
     }
 
     // Check one-time payment access
-    const oneTimePayment = await db.OneTimePayment.findUnique({ where: { user_id: userId }, select: { has_access: true } });
+    const oneTimePayment = await db.OneTimePayment.findFirst({ where: { user_id: userId }, select: { has_access: true } });
     const hasAccess = oneTimePayment?.has_access || false;
 
     let     prompt = `Generate an image description in JSON format with the following structure: { data: {
       prompt:"",
       short_prompt_main_point:"",
           meta_description:"",
-    description:""
+    description:"",
+    alt_text:""
   }}`;
 
     const input = {
@@ -110,6 +111,7 @@ export async function POST(request) {
     const titleAndHeading = removeDots(promptForGenerated);
     const description = afterParse?.data?.description;
     const metaDescription = afterParse?.data?.meta_description;
+    const altText = afterParse?.data?.alt_text;
 
     /**
      * @UploadtoS3
@@ -135,6 +137,7 @@ export async function POST(request) {
           meta_description:metaDescription,
           domain_slug: domainSlug,
           image_url: imageUrl,
+          alt_text:altText
         },
       });
   

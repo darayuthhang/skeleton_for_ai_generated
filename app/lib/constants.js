@@ -64,6 +64,7 @@ class Constant {
     eventKey = process.env.NEXT_PUBLIC_TEST_STAGE === 'test' ? "" :"prod"
     ICON_URL = "/image/showcase/logo.webp"
     
+    APP_NAME_FOR_HEADING="Coloringpagebyai"
     PRICING = {
         basic:"basic",
         standard:"standard",
@@ -75,6 +76,7 @@ class Constant {
 
 
     }
+
     
     CARD_PRICING_DES = [
         // {
@@ -100,20 +102,20 @@ class Constant {
                 
         // },
         {
-            header:"Beginner",
-            tool_tip:"It's your forever",            
-            pricing:"$29.00",
+            header:"30 days pass",
+            tool_tip:"Credits will expire after the day has passed.",            
+            pricing:"$14.99",
+            isPopular:false,
+
             savePricing:false,
             discountPricing:"$40",
             offer:[
-                "40 logos ",
+                "100 credits",
                     // "Transform your existing logo into a 3D logo",
-                "Store your Logos here forever",
-                "Create 2D logo and 3D Logo",
-                "Download Logos in Bulk",
-                // "Download logos in formats: EPS, SVG, PNG, and PDF",
+           "Permanent cloud storage",
+           "30 days access ",
+
                 "Free customer support",
-                "Free commercial use (remove watermark)",
             
                 ],
             card_pricing:this.PRICING.beginner,
@@ -122,21 +124,20 @@ class Constant {
                 
         },
         {
-            header:"Entry",
-            tool_tip:"It's your forever",
-            pricing:"$39",
-            savePricing:false,
-            discountPricing:"$50",
+            header:"One year pass",
+            isPopular:true,
+            tool_tip:"Credits will expire after the day has passed.",
+            pricing:"$59",
+            savePricing:true,
+            discountPricing:"$100",
             offer:[
-                "100 logos",
-                "Store your Logos here forever",
-                "Create 2D logo and 3D Logo",
+                "1200 credits",
+             "Permanent cloud storage",
+             "365 day access",
 
-                // "Transform your existing logo into a 3D logo",
-                "Download Logos in Bulk",
-                // "Download logos in formats: EPS, SVG, PNG, and PDF",
+
                 "Free customer support",
-                "Free commercial use (remove watermark)",
+             
           
                 ],
             card_pricing:this.PRICING.one_time_entry,
@@ -206,10 +207,17 @@ userCountOrLogo = {
 }
 
 BTN_TEXT = {
-    GET_STARTED:"Design a logo"
+    GET_STARTED:"Design a coloring page"
 }
 FREE_CREDIT = 0;
 IS_SCROLL_PAY_PLAN = true;
+ENUM_DAY_PASS = {
+    FIRST_DAY_PASS:"FIRST_DAY_PASS",
+    SECOND_DAY_PASS:"SECOND_DAY_PASS",
+    NO_PASS:"NO_PASS",
+    THIRSTY_DAY_PASS:"THIRSTY_DAY_PASS",
+    ONE_YEAR_DAY_PASS:"ONE_YEAR_DAY_PASS"
+}
 
 }
 export default new Constant();

@@ -9,7 +9,7 @@ const PrivacyPolicy = ({ companyName = constants.APP_NAME}) => {
 
                 <Link className='btn btn-primary mb-4' href="/">Back</Link>
                 <h1 className="">Privacy Policy for {companyName}</h1>
-                <p>Last updated: July 08 2024</p>
+                <p>Last updated: Dec 19 2024</p>
 
                 <h2 className='mt-3 mb-3'>1. Introduction</h2>
                 <p >Welcome to {companyName}. We respect your privacy and are committed to protecting your personal data. This Privacy Policy explains how we collect, use, and share information about you when you visit our website. This policy is designed to comply with the General Data Protection Regulation (GDPR) and the California Consumer Privacy Act (CCPA).</p>

@@ -15,7 +15,7 @@ const TermCondition = ({
             <div className='text-xl p-3'>
                 <Link className='btn btn-primary mb-4' href="/">Back</Link>
                 <h1 className='fw-bold'>Terms and Conditions</h1>
-                <p>Last updated: July 08 2024</p>
+                <p>Last updated: Dec 19 2024</p>
 
                 <h2 className='mt-3 mb-3'>1. Introduction</h2>
                 <p>Welcome to {companyName}. These Terms and Conditions govern your use of {websiteUrl} and its content and services.</p>

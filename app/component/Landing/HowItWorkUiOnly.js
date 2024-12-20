@@ -17,7 +17,7 @@ return (
             <span className="text-xl font-semibold text-gray-700"> 1 </span>
           </div>
           <h3 className=" mt-6 text-xl font-semibold leading-tight text-black md:mt-10">
-            Enter company name
+            Describe your coloring page
           </h3>
           {/* <p className="mt-4 text-base text-black">
           Enter your product description about the problem your product solves.
@@ -28,10 +28,9 @@ return (
             <span className="text-xl font-semibold text-gray-700"> 2 </span>
           </div>
           <h3 className="mt-6 text-xl font-semibold leading-tight text-black md:mt-10">
-            Pick a 3d Model
+            Click generate
           </h3>
-          {/* <p className="mt-4 text-base text-black">
-          Now our AI gets to work! Hang tight and give it a few moments.   </p> */}
+        
         </div>
         <div>
           <div className="flex items-center justify-center w-16 h-16 mx-auto bg-white border-2 border-gray-200 rounded-full shadow">
