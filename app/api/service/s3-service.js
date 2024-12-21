@@ -58,7 +58,32 @@ class S3Service{
         }
     
     }
+    async  uploadFileFreeFolders3WithBuffer(resizedImageBuffer) {
+        try {
+            
+            const uniqueFilename = `${Date.now()}-${uuidv4()}`;
+            const newFolder = "free"
 
+            const key = `${newFolder}/${uniqueFilename}`
+          
+            const params = {
+                Bucket: this.bucketName,
+                Key: key,
+                Body: resizedImageBuffer,
+                ContentType: "image/png"
+            }
+            const command = new PutObjectCommand(params);
+            await this.s3Client.send(command);
+     
+            return uniqueFilename;
+
+        } catch (error) {
+            console.log(error);
+            //error, status code 400 (upload error)
+            throw new S3Service(error, 400);
+        }
+    
+    }
     async  uploadFileToS3WithUrl(url) {
         try {
 

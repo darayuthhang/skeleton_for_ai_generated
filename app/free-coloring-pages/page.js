@@ -1,18 +1,16 @@
 
 import React from 'react';
+import { db } from '../lib/db';
 
-
-import { db } from './lib/db';
 import { getServerSession } from "next-auth/next"
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import { redirect } from 'next/navigation'
-import { FRONT_ENDPOINT } from './lib/front-end-point';
-import constants from './lib/constants';
-import Landing from './component/Landing/Landing';
-import { imageList } from './lib/app-constant';
+
+import constants from '../lib/constants';
+import Landing from './Landing';
 export const dynamic = 'force-dynamic';
-const title = `The #1 AI Coloring page Generator | ${constants.APP_NAME}`
-const des = `Generate beautiful, customizable AI-powered coloring pages with ${constants.APP_NAME}. Perfect for kids, adults, and artists seeking creative fun. Try it now and bring your ideas to life!`;
+const title = `Free coloring pages | ${constants.APP_NAME}`
+const des = `Discover a variety of AI-powered coloring page categories with ${constants.APP_NAME}. Explore designs for kids, adults, and artists to find your perfect creative outlet. Start coloring today!`;
 
 const imageurl = "/image/showcase/logo.webp"
 
@@ -95,14 +93,13 @@ export const metadata = {
 }
 export default async function page() {
   
-  const session = await getServerSession(authOptions);
-  if(session?.accessToken){
-    redirect(`${FRONT_ENDPOINT.DASHBOARD}`)
-  }
-  const h1 = ` The #1 AI Coloring page Generator `;
-  const h2 = ` Create Coloring Pages  & Sell Them `
-  const des = `Design and sell your own customizable coloring pages. Turn your creativity into profit by offering unique designs that people will love and buy today!`;
-
+//   const session = await getServerSession(authOptions);
+//   if(session?.accessToken){
+//     redirect(`${FRONT_ENDPOINT.DASHBOARD}`)
+//   }
+  const h1 = `Explore Our Categories of Free Coloring Pages`;  
+  const p = `Browse a wide selection of free, customizable coloring pages in various categories. From animals to abstract designs, find the perfect page to color and bring to life!`;
+  
 
 
   const limit = 12;
@@ -124,12 +121,8 @@ export default async function page() {
   return (
     <>
     <Landing 
-    h1={h1}
-    h2={h2}
-
-    description={des}
-    imageList={imageList}
-  
+        h1={h1}
+        p={p}
     />
     {/* <ProductKeyWord /> */}
     </>

@@ -9,7 +9,7 @@ import { db } from "@/app/lib/db";
 import constants from "@/app/lib/constants";
 import Zod from "@/app/lib/zod/Zod";
 import Replicate from "replicate";
-import { stringToSlug, removeDots } from "@/app/lib/3d-logo-helpers";
+import { stringToSlug, removeDots } from "@/app/lib/app-helpers";
 import { v4 as uuidv4 } from "uuid";
 
 

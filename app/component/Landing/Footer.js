@@ -15,7 +15,7 @@ const Footer = () => {
                         alt='logo'
                         className="rounded-lg"
                     />
-                    <div className='text-rose-400  font-bold text-shadow-3d text-xl'>
+                    <div className='  font-bold  text-xl'>
                         {constants.APP_NAME_FOR_HEADING}
                         </div>
                 </div>
@@ -76,6 +76,11 @@ const Footer = () => {
                 <header className="footer-title">LEGAL</header>
                 <Link href="/term-condition" className="link link-hover">Terms of use</Link>
                 <Link href="/privacy-policy" className="link link-hover">Privacy policy</Link>
+            </nav>
+            <nav>
+                <header className="footer-title">Link</header>
+                <a  target='__blank' href="https://sprunki-mod.com/">Sprunki Mod</a>
+                <a  target='__blank' href="https://whatisaitools.com/" title="What Is Ai Tools">What Is Ai Tools</a>
             </nav>
            
 

@@ -11,11 +11,8 @@ import CardPricing from "../CardPricing/CardPricing";
 import Faq from "./Faq";
 import BigCardSignup from "./BigCardSignup";
 import Footer from "./Footer";
-import CountLogo from "./CountLogo";
-import FutureTrends from "./FutureTrend";
-import ComparisonBenefit from "./ComparisonBenefit";
-import { SHOW_LANDING_IMAGE_LIST } from "@/app/lib/3d-logo-constant";
 
+import { SHOW_LANDING_IMAGE_LIST } from "@/app/lib/app-constant";
 const stripe = new StripePayment();
 const Landing = ({     imageList, h1,h2, description, dynamic, imageListOf3DLogo,imageListOf2DLogo }) => {
   const pricingRef = useRef(null);

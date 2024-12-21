@@ -13,7 +13,7 @@ import "react-toastify/dist/ReactToastify.css";
 import DashboardTab from "./DashboardTap";
 import { usePathname, useSearchParams } from "next/navigation";
 
-import { generateRandom3DLogoIdea } from "@/app/lib/3d-logo-helpers";
+import { generateRandom3DLogoIdea } from "@/app/lib/app-helpers";
 import Image from "next/image";
 
 

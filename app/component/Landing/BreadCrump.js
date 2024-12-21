@@ -11,7 +11,7 @@ const Breadcrumbs = ({isBg}) => {
   const pathArray = pathname.split('/').filter(Boolean);
 
   return (
-    <div className={`breadcrumbs ${isBg ? "bg-tree text-white" : "text-black" } `}>
+    <div className={`breadcrumbs ${isBg ? "bg-tree text-white" : "text-gray-500" } `}>
       <ul>
         <li>
           <Link href="/" className=''>Home</Link>

@@ -103,7 +103,19 @@ model ImageUrl {
   updated_at           DateTime @default(now()) @db.Timestamptz
 
 }
+model FreeColorPageImageUrl {
+  id            String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  title_and_heading      String
+  image_url      String
+  domain_slug    String
+  description    String 
+  meta_description String
+  alt_text String?
+  category String?
+  created_at           DateTime @default(now()) @db.Timestamptz
+  updated_at           DateTime @default(now()) @db.Timestamptz
 
+}
 model Permission{
     id   String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
     is_private       Boolean? @default(false)

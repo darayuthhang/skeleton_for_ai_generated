@@ -11,12 +11,10 @@ import OpenAiService from "@/app/api/service/openai-service";
 import { db } from "@/app/lib/db";
 import Zod from "@/app/lib/zod/Zod";
 import Replicate from "replicate";
-import { stringToSlug } from "@/app/lib/3d-logo-helpers";
 import { v4 as uuidv4 } from "uuid";
 import { inngest } from "@/app/api/inngest/client";
 import constants from "@/app/lib/constants";
-import { removeDots } from "@/app/lib/3d-logo-helpers";
-
+import { removeDots, stringToSlug } from "@/app/lib/app-helpers";
 export const dynamic = "force-dynamic";
 export const maxDuration = 25;
 

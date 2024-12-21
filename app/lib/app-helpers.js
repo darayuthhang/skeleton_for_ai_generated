@@ -61,3 +61,15 @@ export function generateRandom3DLogoIdea() {
 
   return idea;
 }
+
+export function addDashToSpace(str) {
+  // Check if there's a space in the string
+  if (str.includes(' ')) {
+    // Replace spaces with dashes
+    return str.replace(/ /g, '-');
+  }
+  // Return the string unchanged if no spaces
+  return str;
+}
+
+

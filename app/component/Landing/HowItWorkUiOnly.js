@@ -37,7 +37,7 @@ return (
             <span className="text-xl font-semibold text-gray-700"> 3 </span>
           </div>
           <h3 className="mt-6 text-xl font-semibold leading-tight text-black md:mt-10">
-          Our AI will generate a logo for you.         </h3>
+          Our AI will generate a coloring page for you.         </h3>
           {/* <p className="mt-4 text-base text-black">
           Note: Using the same prompt may generate slightly different versions of your uploaded image each time. Save the versions you like!
           </p> */}

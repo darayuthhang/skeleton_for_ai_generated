@@ -157,7 +157,7 @@ const Navigation = ({
                   {constants.APP_NAME_FOR_HEADING}
                 </strong>
               ) : (
-                <strong className="  font-bold text-shadow-3d text-green-100  md:text-lg">
+                <strong className="  font-bold text-black  md:text-lg">
  {constants.APP_NAME_FOR_HEADING}                </strong>
               )}
             </Link>
@@ -285,18 +285,18 @@ const Navigation = ({
                       ""
                     )}
 
-
-                    <li>
+<li>
                       <Link
-                        href="/logos"
+                        href="/free-coloring-pages"
                         className="
                          hidden md:flex link link-neutral   
                                         font-bold
                                         "
                       >
-                        Explore
+                        Free color pages
                       </Link>
                     </li>
+                   
 
                     {/* <li>
                   <Link 
